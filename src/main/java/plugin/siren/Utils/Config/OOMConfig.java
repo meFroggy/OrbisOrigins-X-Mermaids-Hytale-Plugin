@@ -41,11 +41,15 @@ public class OOMConfig {
                     (merConfig, moiwBool, extraInfo) -> merConfig.MermaidOnlyInWater = moiwBool, // Setter
                     (merConfig, extraInfo) -> merConfig.MermaidOnlyInWater)                    // Getter
             .add()
+            .append(new KeyedCodec<Boolean>("New-Version-Message", Codec.BOOLEAN),
+                    (merConfig, nvmBool, extraInfo) -> merConfig.NewVersion = nvmBool, // Setter
+                    (merConfig, extraInfo) -> merConfig.NewVersion)                    // Getter
+            .add()
             .build();
 
     private String InformationDefault = "Confused about what one of these statement do? Go to https://mermaids.dev/mermaids/compatibilities/orbis-origins/config/ or check out the Curseforge website and scroll down to Config Extra Info.";
     private String Information = InformationDefault;
-    private final int ConfigVersionDefault = 1;
+    private final int ConfigVersionDefault = 2;
     private int ConfigVersion = ConfigVersionDefault;
     private String PluginName = "OrbisOrigins X Mermaids";
     private String Version = OrbisOriginsMermaids.getVersion();
@@ -55,6 +59,7 @@ public class OOMConfig {
     private String DownloadSite = DownloadSiteDefault;
     private boolean DisableMermaidsContent = true;
     private boolean MermaidOnlyInWater = false;
+    private boolean NewVersion = true;
 
     public OOMConfig() {}
 
@@ -119,5 +124,9 @@ public class OOMConfig {
 
     public void setMermaidOnlyInWater(boolean onlyInWater){
         this.MermaidOnlyInWater = onlyInWater;
+    }
+
+    public boolean ifNewVersion(){
+        return NewVersion;
     }
 }

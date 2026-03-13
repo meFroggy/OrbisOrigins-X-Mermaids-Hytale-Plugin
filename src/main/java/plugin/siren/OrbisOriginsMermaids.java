@@ -20,7 +20,7 @@ import javax.annotation.Nonnull;
 import java.util.concurrent.TimeUnit;
 
 public class OrbisOriginsMermaids extends JavaPlugin {
-    private static final String VERSION = "1.0.0";
+    private static final String VERSION = "1.0.1";
 
     private static OrbisOriginsMermaids plugin;
     public static final HytaleLogger LOGGER = HytaleLogger.forEnclosingClass();

@@ -6,7 +6,7 @@
 
     <groupId>plugin.siren</groupId>
     <artifactId>OrbisOrigins-X-Mermaids</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 
     <properties>
         <maven.compiler.source>25</maven.compiler.source>
@@ -29,7 +29,7 @@
                         <configuration>
                             <target>
                                 <copy file="${project.build.directory}/${project.build.finalName}.jar"
-                                      todir="B:\.HytaleMods\.HytaleServer\Server\mods"
+                                      todir="C:\Users\dipia\OneDrive\Documents\HytalePlugins\.SERVER\Server\mods"
                                       overwrite="true"/>
                             </target>
                         </configuration>
@@ -49,7 +49,7 @@
         <dependency>
             <groupId>plugin.siren</groupId>
             <artifactId>Mermaids</artifactId>
-            <version>1.4.0</version>
+            <version>1.4.1</version>
             <scope>provided</scope>
             <optional>true</optional>
         </dependency>
