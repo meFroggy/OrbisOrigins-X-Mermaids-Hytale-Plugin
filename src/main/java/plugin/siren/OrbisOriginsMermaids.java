@@ -4,6 +4,7 @@ import com.hypixel.hytale.common.plugin.PluginIdentifier;
 import com.hypixel.hytale.event.EventRegistration;
 import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.server.core.HytaleServer;
+import com.hypixel.hytale.server.core.Message;
 import com.hypixel.hytale.server.core.command.system.CommandRegistration;
 import com.hypixel.hytale.server.core.event.events.player.PlayerReadyEvent;
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
@@ -14,9 +15,11 @@ import plugin.siren.Contributions.al3x.HStats;
 import plugin.siren.Dependencies.Mermaids.MermaidRegister;
 import plugin.siren.Dependencies.OrbisOrigin.OrbisOriginRegister;
 import plugin.siren.Events.PlayerReadyEventOOM;
+import plugin.siren.Utils.API.UpdateChecker;
 import plugin.siren.Utils.Config.OOMConfig;
 
 import javax.annotation.Nonnull;
+import java.awt.*;
 import java.util.concurrent.TimeUnit;
 
 public class OrbisOriginsMermaids extends JavaPlugin {
@@ -77,7 +80,23 @@ public class OrbisOriginsMermaids extends JavaPlugin {
         }
 
         LOGGER.atInfo().log("Version " + VERSION + " of Orbis Origins X Mermaids has successfully loaded.");
+
+        String recentVersion = UpdateChecker.checkForUpdate();
+        if(!VERSION.equalsIgnoreCase(recentVersion)){
+            LOGGER.atInfo().log("= =- -=- -=- -=- -=- -=- -=- -=- -=- -=- -= =");
+            String versionMessage = "The Orbis Origins X Mermaids Mod version is outdated, Orbis Origins X Mermaids has released v" + recentVersion +".";
+            LOGGER.atInfo().log(versionMessage);
+
+            Runnable updateCheckRunnable = new Runnable() {
+                @Override
+                public void run() {
+                    LOGGER.atInfo().log(versionMessage);
+                }
+            };
+            HytaleServer.SCHEDULED_EXECUTOR.schedule(updateCheckRunnable,15, TimeUnit.SECONDS);
+        }
         LOGGER.atInfo().log("===---==---==---==---==---==---==---==---==---==---==---==---===");
+
         Runnable registerDependencies = new Runnable() {
             @Override
             public void run() {
