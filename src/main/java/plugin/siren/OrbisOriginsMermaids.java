@@ -18,6 +18,7 @@ import plugin.siren.Utils.API.OOMUpdateChecker;
 import plugin.siren.Utils.Config.OOMConfig;
 
 import javax.annotation.Nonnull;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 public class OrbisOriginsMermaids extends JavaPlugin {

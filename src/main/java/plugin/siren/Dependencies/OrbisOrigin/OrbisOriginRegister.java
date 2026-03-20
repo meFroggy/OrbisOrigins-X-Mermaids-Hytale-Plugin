@@ -1,10 +1,7 @@
 package plugin.siren.Dependencies.OrbisOrigin;
 
 import com.hexvane.orbisorigins.data.PlayerSpeciesData;
-import com.hexvane.orbisorigins.species.AttachmentOption;
-import com.hexvane.orbisorigins.species.SpeciesData;
-import com.hexvane.orbisorigins.species.SpeciesRegistry;
-import com.hexvane.orbisorigins.species.SpeciesVariantData;
+import com.hexvane.orbisorigins.species.*;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.server.core.HytaleServer;
@@ -14,10 +11,7 @@ import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import plugin.siren.api.MermaidsAPI;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 public class OrbisOriginRegister {
@@ -60,17 +54,17 @@ public class OrbisOriginRegister {
 
     private OrbisOriginRegister(){}
 
-    public static void register(){
-        /*int version = 0;
+    public static void register() {
+        int version = 0;
         String id = "mermaid";
         String displayName = "Mermaid";
-        String displayNameKey = null;
+        String displayNameKey = "species.mermaid.name";
         String modelBaseName = "Player";
         List<String> variants = new ArrayList<>();
         variants.add("Mermaid");
         List<SpeciesVariantData> variantsV2 = null;
         String description = "A mythical creature who swims faster underwater.";
-        String descriptionKey = null;
+        String descriptionKey = "species.mermaid.desc";
         int healthModifier = 15;
         int staminaModifier = 5;
         int manaModifier = 25;
@@ -86,10 +80,13 @@ public class OrbisOriginRegister {
         Map<String, Float> damageResistance = new HashMap<>();
         damageResistance.put("Physical", 0.95f);
         damageResistance.put("Magic", 0.85f);
+        float modelScale = 1f;
+        float sleepingRaiseHeight = 0f;
+        List<SpeciesAbilityConfig> abilities = new ArrayList<>();
 
-        SpeciesData mermaidSpecies = new SpeciesData(version,id,displayName,displayNameKey,modelBaseName,variants,variantsV2,description,descriptionKey,healthModifier,staminaModifier,manaModifier,enabled,usePlayerModel,enableAttachmentDiscovery,manualAttachments,eyeHeightModifiers,hitboxHeightModifiers,starterItems,damageResistance);
+        SpeciesData mermaidSpecies = new SpeciesData(version,id,displayName,displayNameKey,modelBaseName,variants,variantsV2,description,descriptionKey,healthModifier,staminaModifier,manaModifier,enabled,usePlayerModel,enableAttachmentDiscovery,manualAttachments,eyeHeightModifiers,hitboxHeightModifiers,starterItems,damageResistance,modelScale,sleepingRaiseHeight, abilities);
 
-        SpeciesRegistry.registerSpecies(mermaidSpecies);*/
+        SpeciesRegistry.registerSpecies(mermaidSpecies);
 
         HytaleServer.SCHEDULED_EXECUTOR.scheduleAtFixedRate(checkForMermaidSpecies,15, 8, TimeUnit.SECONDS);
     }
